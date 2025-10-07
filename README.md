@@ -82,7 +82,11 @@ df.isnull().sum()
 ```
 
 ## 6) Replace Semua Null Values
-
+- df.copy(): Untuk membuat salinan dan menjaga df asli tidak berubah dan semua perubahan dilakukan pada df_filled.
+- pd.api.types.is_numeric_dtype(): Memisahkan kolom numerik (mis. int64, float64) dari kolom non-numerik.
+- Kolom numerik yang seluruhnya NaN, kolomnya akan tetap berisi NaN karena mean adalah NaN. Ini membuat hasil belum bersih sempurna.
+- Pengisian dengan mean menyebabkan kehilangan dtype integer asli. Jika ingin tetap integer perlu penanganan tambahan (round + konversi ke Int64 nullable dtype).
+- is_numeric_dtype mungkin tidak menganggap boolean/datetime sebagai numerik. Sehingga kolom tersebut akan masuk ke cabang non-numerik dan diisi dengan modus (bukan pendekatan terbaik untuk tanggal).
 
 ```python
 df_filled = df.copy()
@@ -101,7 +105,10 @@ display(df_filled.isnull().sum().to_frame(name="null_after_fill").T)
 ```
 
 ## 7) Mengetahui Tipe Data dari Dataset
-
+- from IPython.display import display: Bisa menampilkan DataFrame, gambar, HTML, atau objek visual lain dengan format interaktif.
+- df_filled.dtypes: Mengembalikan tipe data dari setiap kolom di dalam DataFrame.
+- .to_frame(name="dtype"): Ubah ke bentuk tabel (DataFrame).
+- display(): Menampilkan hasil DataFrame tersebut dalam format tabel rapi, bukan teks biasa. 
 
 ```python
 from IPython.display import display
