@@ -7,7 +7,7 @@
 
 ## 1) Load Data
 - pandas: Mengelola dan menganalisis data dalam bentuk tabel (DataFrame).
-- numpy: untuk perhitungan numerik.
+- numpy: Untuk perhitungan numerik.
 - matplotlib.pyplot: Membuat visualisasi data seperti grafik.
 - Seaborn: Untuk visualisasi data statistik.
 - pd.read_csv(path): Membaca file CSV dan menyimpannya ke variabel df.
@@ -34,7 +34,7 @@ df.info()
 df.describe(include='all').T
 ```
 
-# 3) Cek Nilai Duplikat dan Nilai Unik
+## 3) Cek Nilai Duplikat dan Nilai Unik
 - df.duplicated().sum(): Menghitung jumlah baris yang sama persis (duplikat).
 - df[df.duplicated()]: Menampilkan baris-baris yang terduplikasi.
 - df.nunique(): Menunjukkan berapa banyak nilai unik di setiap kolom, berguna untuk melihat keragaman data.
